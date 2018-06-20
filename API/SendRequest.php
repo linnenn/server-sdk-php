@@ -118,6 +118,8 @@ class SendRequest
             $ret =  curl_errno($ch);
         }
         curl_close($ch);
+        $ret = json_decode($ret,true);
+        $ret['status_code']  = $ret['code'];
         return $ret;
     }
 }
